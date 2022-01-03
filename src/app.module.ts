@@ -4,11 +4,11 @@ import { AppService } from './app.service';
 import { ProductsModule } from './products/products.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
-
+const dbUrl = process.env.DB_URL
 @Module({
   imports: [
     ProductsModule,
-    MongooseModule.forRoot('mongodb+srv://uzzwal:uzzwal12@cluster0.fykmn.mongodb.net/nestJs?retryWrites=true&w=majority')
+    MongooseModule.forRoot(dbUrl)
   ],
   controllers: [AppController],
   providers: [AppService],
